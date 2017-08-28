@@ -1,0 +1,17 @@
+body {
+  font-family: 'Sedgwick Ave Display', cursive;
+}
+
+.thumbnails img {
+  width: 450px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.description .panel-default {
+  height: 420px;
+}
+
+.description .panel-default .panel-body {
+  text-align: center;
+}

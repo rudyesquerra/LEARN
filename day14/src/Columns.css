@@ -1,0 +1,18 @@
+.astro {
+  height: 200px;
+}
+
+body {
+  color: white;
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: 2em;
+  text-align: center; 
+}
+
+.ufo {
+  height: 200px;
+}
+
+.margin{
+  margin-top: 300px;
+}

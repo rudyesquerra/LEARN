@@ -1,0 +1,10 @@
+{
+  "name": "Express_Challenges",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.4",
+    "reverse-string": "^0.0.6"
+  }
+}

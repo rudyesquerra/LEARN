@@ -1,0 +1,3 @@
+Programming is fun.
+If you want to have more fun,
+program JavaScript!

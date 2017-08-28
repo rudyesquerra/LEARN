@@ -1,0 +1,36 @@
+.jumbotron {
+  background-color: grey;
+    }
+
+.jumbotron h1 {
+  font-family: 'Indie Flower', cursive;
+  font-size: 60px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.jumbotron p {
+  font-family: 'Indie Flower', cursive;
+  text-align: left;
+}
+
+.font_pacifico {
+  font-family: 'Pacifico', cursive;
+}
+
+footer {
+  font-family: 'Coming Soon', cursive;
+  margin: 50px;
+}
+
+.button_grp {
+  text-align: center;
+}
+
+.col-sm-4 {
+  height: 570px;
+}
+
+.col-sm-3 {
+  height: 570px;
+}

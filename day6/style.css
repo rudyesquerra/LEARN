@@ -1,0 +1,57 @@
+html, body {
+  margin:0;
+  padding:0;
+  border-width:0;
+}
+.background {
+  background: url(http://cdn.wallpapersafari.com/55/84/eNdXRz.jpg)no-repeat center center fixed;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.hdr  {
+      width: 20%;
+      border: 5px dashed black;
+      margin: 20px;
+    }
+
+.hdr h3,h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-style: oblique;
+}
+
+.hdr img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hdr p{
+  padding:75px;
+}
+
+section {
+  display: inline-block;
+}
+
+footer {
+  margin: 30px;
+  position: fixed;
+  text-align: center;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer ul li {
+  display: inline;
+  margin: 10px;
+}

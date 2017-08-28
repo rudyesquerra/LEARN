@@ -1,0 +1,182 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+    //  Story: As a programmer, I can make a car.
+    // Hint: Create a class called Car, and create a variable called myCar which contains an object of class Car.
+      class Car{
+              constructor(){
+                this.wheels = 4
+                // <!-- Story: As a programmer, I can tell which model year a vehicle is from. Model years never change.
+                // Hint: Make model year part of the initialization. -->
+                this.model = 2017
+                // <!-- Story: As a programmer, I can determine if the lights are on or off. Lights start in the off position. -->
+                this.lights = false
+                // <!-- Story: As a programmer, I can signal left and right. Turn signals starts off. -->
+                this.signal = "off"
+                // <!-- Story: As a programmer, I can determine the speed of a car. Speed starts at 0 km/h. -->
+                this.speed = 0
+                this.info = `Wheels: ${this.wheels}, Model: ${this.model}, Lights On: ${this.lights}, Signal: ${this.signal}, Current Speed: ${this.speed}`
+              }
+
+              start(){
+                       this.speed = 50
+                     }
+
+              stop(){
+                       this.speed = 0
+                     }
+              // <!-- Story: As a programmer, I can turn on and off the lights on a given Car.
+              // Hint: Create method(s) to allow programmer to turn lights on and off. Which class are the methods in? -->
+              lightsOn(){
+                 this.lights = true
+               }
+
+               lightsOff(){
+                 this.lights = false
+               }
+
+               signalLeft(){
+                  this.signal = "left"
+               }
+
+               signalRight(){
+                  this.signal = "right"
+               }
+
+               signalOff(){
+                  this.signal = "off"
+               }
+
+               // <!-- Story: As a programmer, I can call upon a car to tell me all it's information.
+               // Hint: Implement carInfo method on one or more classes. You can call a super class's carInfo with super. -->
+               carInfo(){
+                 this.info = `Wheels: ${this.wheels}, Model: ${this.model}, Lights On: ${this.lights}, Signal: ${this.signal}, Current Speed: ${this.speed}`
+               }
+            }
+
+
+      // <!-- Story: As a programmer, I can make a Tesla car.
+      // Hint: Create an variable called myTesla which is of class Tesla which inherits from class Car. -->
+
+      class Tesla extends Car{
+        constructor(){
+          super()
+          this.info = `Wheels: ${this.wheels}, Model: ${this.model}, Lights On: ${this.lights}, Signal: ${this.signal}, Current Speed: ${this.speed}`
+          this.model = 2016
+          }
+        // <!-- Story: As a programmer, I can speed my Teslas up by 10 per acceleration. -->
+        accelerate(){
+          if(this.speed != 0){
+              this.speed += 10
+              }
+            }
+        // <!-- Story: As a programmer, I can slow my Teslas down by 7 per braking. -->
+        decelerate(){
+          if(this.speed != 0){
+              this.speed -= 7
+            }
+          }
+        }
+
+        class Tata extends Car{
+          // <!-- Story: As a programmer, I can speed my Tatas up by 2 per acceleration. -->
+          accelerate(){
+            if(this.speed != 0){
+                this.speed += 2
+            }
+          }
+          // <!-- Story: As a programmer, I can slow my Tatas down by 1.25 per braking. -->
+          decelerate(){
+            if(this.speed != 0){
+                this.speed -= 1.25
+            }
+          }
+        }
+
+        class Toyota extends Car{
+          // <!-- Story: As a programmer, I can speed my Toyotas up by 7 per acceleration. -->
+          accelerate(){
+            if(this.speed != 0){
+                this.speed += 7
+            }
+          }
+          // <!-- Story: As a programmer, I can slow my Toyotas down by 5 per braking. -->
+          decelerate(){
+            if(this.speed != 0){
+                this.speed -= 5
+            }
+          }
+        }
+
+      let myCar = new Car()
+
+      let myTesla = new Tesla()
+      myTesla.model = 2018
+      let myTesla2 = new Tesla()
+      myTesla2.model = 2016
+
+      // <!-- Story: As a programmer, I can make a Tata car. -->
+      let myTata = new Tata()
+      myTata.model = 2005
+      let myTata2 = new Tata()
+      myTata2.model = 1998
+
+      // <!-- Story: As a programmer, I can make a Toyota car. -->
+
+      let myToyota = new Toyota()
+      myToyota.model = 2007
+      let myToyota2 = new Toyota()
+      myToyota2.model = 1967
+
+
+      myTesla.start()
+      console.log('accelerating')
+      myTesla.accelerate()
+      console.log('speed:', myTesla.speed)
+      myTesla.decelerate()
+      console.log('speed:', myTesla.speed)
+
+      myTata.start()
+      console.log('accelerating')
+      myTata.accelerate()
+      console.log('speed:', myTata.speed)
+      myTata.decelerate()
+      console.log('speed:', myTata.speed)
+
+      myToyota.start()
+      console.log('accelerating')
+      myToyota.accelerate()
+      console.log('speed:', myToyota.speed)
+      myToyota.decelerate()
+      console.log('speed:', myToyota.speed)
+
+      myTesla.carInfo()
+      console.log(myTesla.info)
+
+    // <!-- Story: As a programmer, I can keep a collection of two of each kind of vehicle, all from different years.
+    // Hint: Create two of each vehicles, all from different model years, and put them into an Array. -->
+    var garage = []
+
+    garage.push(myTesla)
+    garage.push(myTesla2)
+    garage.push(myTata)
+    garage.push(myTata2)
+    garage.push(myToyota)
+    garage.push(myToyota2)
+
+    // <!-- Story: As a programmer, I can sort my collection of cars based on model year. -->
+    garage.sort(function(a, b) {
+      return(a.model - b.model);
+    });
+
+      // <!-- Story: As a programmer, I can sort my collection of cars based on model.
+      // Hint: Sort based on class name. -->
+    garage.sort(function(a, b) {
+      return (a.constructor.name > b.constructor.name)*1 + (a.constructor.name < b.constructor.name)*-1;
+    });
+
+    </script>
+  </body>
+</html>

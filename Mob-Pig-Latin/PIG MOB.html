@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pig Latin Translator</title>
+    <script>
+      var userInput = prompt("Please input something to translate.");
+      var wordArray = userInput.split(" ");
+      // var wordArray = userInput.match(/\w+|\s+|^\s\w + /g);
+      //console.log(wordArray);
+
+      //create a function to run the wordArray through
+      function pigLatin (inputArray) {
+      //runs through every word in the array
+        for (var i = 0; i < inputArray.length; i++) {
+          inputArray[i] = inputArray[i] + "-";
+      //use RegExp to check the word for vowels or consonants
+            let vowelWords = new RegExp('^[aeiou]', 'i');
+            let consonantWords = new RegExp('^[b-df-hj-np-tv-z]', 'i');
+      //after first consonant is moved to back, check if u is at beginning
+            let quWords = new RegExp('q$'&&'^u', 'i');
+            let specialChr = new RegExp('[.,!?]');
+      //for vowels, add -way to end
+            if (vowelWords.test(inputArray[i])) {
+               inputArray[i] = inputArray[i] + "way";
+
+      //for consonants
+    }
+              else if (consonantWords.test(inputArray[i])) {
+                  while(consonantWords.test(inputArray[i])){
+
+                  inputArray[i] = inputArray[i].substring(1) + inputArray[i].substring(0, 1);
+                  }
+
+                  if (quWords.test(inputArray[i])){
+                    inputArray[i] = inputArray[i].substring(1) + inputArray[i].substring(0, 1)
+                  }
+                inputArray[i] = inputArray[i] + "ay";
+            }
+            if(specialChr.test(inputArray[i])){
+              var position = inputArray[i].search(specialChr);
+              console.log(position)
+              inputArray[i] = inputArray[i].substring(0, position) +inputArray[i].substring(position+1, inputArray[i].length) + inputArray[i].substring(position,position+1) 
+            }
+
+
+}
+   console.log(inputArray.join(" "))
+}
+  //call the function with wordArray passed as the parameter
+      pigLatin(wordArray);
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

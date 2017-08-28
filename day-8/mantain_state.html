@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1 id = 'greeting'></h1>
+    <img height='100' width='100' id='picture' src = './411513-spongebob-square-pants-sponge-bob.jpg' >
+    <button onclick='greetNext()' id='next'>Greet the next person</button>
+    <script>
+      var currentState = {
+        availableGreetings: [{name:"Bob", image: './411513-spongebob-square-pants-sponge-bob.jpg'}, {name:"Mary", image:'./consecration3-mary3a.jpg'}, {name:"Carson", image:'./BCcurrent.jpg'}],
+        greetingIndex: 0,
+        greetingIndex2: 1
+      } //Object with the information we want to log out setup to zero
+
+      var element = document.getElementById('greeting');
+      element.innerHTML = "Hello " +currentState.availableGreetings[currentState.greetingIndex].name; //calls for the value inside availableGreetings property using greetingIndex to know the position of that value
+
+      var element_2 = document.getElementById('next');
+      element_2.innerHTML = "Greet " + currentState.availableGreetings[currentState.greetingIndex2].name;
+
+      var element_3 = document.getElementById('picture');
+      element_3.src = currentState.availableGreetings[currentState.greetingIndex].image;
+
+
+      function greetNext(){
+        currentState.greetingIndex += 1;
+        currentState.greetingIndex2 += 1; //loops through the array by incrementing greetingIndex
+        //we need to check to see if we are at the last greeting, and circle around to first if so
+        if(currentState.greetingIndex == currentState.availableGreetings.length){
+          currentState.greetingIndex = 0;
+
+        }  else if(currentState.greetingIndex2 == currentState.availableGreetings.length){
+          currentState.greetingIndex2 = 0;
+        }
+
+        //update the dom with new greeting
+        var element = document.getElementById('greeting');
+        element.innerHTML = "Hello " +currentState.availableGreetings[currentState.greetingIndex].name;
+
+
+        var element_2 = document.getElementById('next');
+        element_2.innerHTML = "Greet " + currentState.availableGreetings[currentState.greetingIndex2].name;
+
+
+        var element_3 = document.getElementById('picture');
+        element_3.src = currentState.availableGreetings[currentState.greetingIndex].image;
+      }
+
+    </script>
+  </body>
+</html>
