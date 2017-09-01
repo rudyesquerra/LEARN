@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Dancing+Script|Libre+Barcode+39+Text');
+
+.pics {
+  width: 800px;
+  height: 600px;
+}
+
+body {
+  background-color: white;
+  text-align: center;
+}
+
+.title {
+  background-color: #7FDBFF;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-family: 'Dancing Script', cursive;
+}
+
+.pad {
+  background-color: white;
+  font-family: 'Abril Fatface', cursive;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+}
+ul{
+  list-style: none;
+}
+
+video {
+    top: 70%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+.header{
+  font-size: 60px;
+}
+
+.footer {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: white;
+  text-align: center;
+}
