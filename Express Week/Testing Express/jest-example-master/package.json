@@ -1,0 +1,16 @@
+{
+  "name": "SupertestExample",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts":{
+    "test": "jest"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0", 
+    "babel-preset-env": "^1.6.0",
+    "express": "^4.15.4",
+    "jest": "^21.1.0",
+    "supertest": "^3.0.0"
+  }
+}

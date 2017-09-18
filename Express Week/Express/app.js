@@ -1,8 +1,31 @@
 var express = require('express');
 var app = express();
 var reverse = require('reverse-string');
+let cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
 
+// app.get('/', function (request, response) {
+//  response.send('Hello World!');
+// });
+
+// app.get('/',
+//   function(request, response){
+//     console.log("the cookies", request.cookies)
+//     response.send("Hello World")
+//   })
+
+  app.get('/',
+  function(request, response){
+
+    //we read cookies from the request
+    let pageVisits = parseInt(request.cookies.pageVisits) || 0
+
+    //we set cookies on the response
+    response.cookie('pageVisits', pageVisits + 1)
+
+    response.send("Hello World. Page Visits:" + pageVisits )
+  })
 
 // app.get('/hello/:name/:surname', function (request, response) {
 //   var name = request.params["name"]
@@ -54,45 +77,45 @@ var reverse = require('reverse-string');
 //
 // });
 
-app.get('/piglatin/:text', function (request, response) { //For this challenge we used the code of the previous pig latin excercise
-  var text = request.params['text'];
-  var splitText = text.split(" ");
-  function pigLatin (inputArray) {
-//runs through every word in the array
-    for (var i = 0; i < inputArray.length; i++) {
-      inputArray[i] = inputArray[i] + "-";
-  //use RegExp to check the word for vowels or consonants
-        let vowelWords = new RegExp('^[aeiou]', 'i');
-        let consonantWords = new RegExp('^[b-df-hj-np-tv-z]', 'i');
-  //after first consonant is moved to back, check if u is at beginning
-        let quWords = new RegExp('q$'&&'^u', 'i');
-        let specialChr = new RegExp('[.,!?]');
-  //for vowels, add -way to end
-        if (vowelWords.test(inputArray[i])) {
-           inputArray[i] = inputArray[i] + "way";
-  //for consonants
-        }
-          else if (consonantWords.test(inputArray[i])) {
-              while(consonantWords.test(inputArray[i])){
-              inputArray[i] = inputArray[i].substring(1) + inputArray[i].substring(0, 1);
-              }
-              if (quWords.test(inputArray[i])){
-                inputArray[i] = inputArray[i].substring(1) + inputArray[i].substring(0, 1)
-              }
-            inputArray[i] = inputArray[i] + "ay";
-        }
-        if(specialChr.test(inputArray[i])){
-          var position = inputArray[i].search(specialChr);
-          console.log(position)
-          inputArray[i] = inputArray[i].substring(0, position) +inputArray[i].substring(position+1, inputArray[i].length) + inputArray[i].substring(position,position+1)
-        }
-    }
-      return inputArray.join(" ")
-  }
-
-  var word = pigLatin(splitText);
-  response.send(word);
-});
+// app.get('/piglatin/:text', function (request, response) { //For this challenge we used the code of the previous pig latin excercise
+//   var text = request.params['text'];
+//   var splitText = text.split(" ");
+//   function pigLatin (inputArray) {
+// //runs through every word in the array
+//     for (var i = 0; i < inputArray.length; i++) {
+//       inputArray[i] = inputArray[i] + "-";
+//   //use RegExp to check the word for vowels or consonants
+//         let vowelWords = new RegExp('^[aeiou]', 'i');
+//         let consonantWords = new RegExp('^[b-df-hj-np-tv-z]', 'i');
+//   //after first consonant is moved to back, check if u is at beginning
+//         let quWords = new RegExp('q$'&&'^u', 'i');
+//         let specialChr = new RegExp('[.,!?]');
+//   //for vowels, add -way to end
+//         if (vowelWords.test(inputArray[i])) {
+//            inputArray[i] = inputArray[i] + "way";
+//   //for consonants
+//         }
+//           else if (consonantWords.test(inputArray[i])) {
+//               while(consonantWords.test(inputArray[i])){
+//               inputArray[i] = inputArray[i].substring(1) + inputArray[i].substring(0, 1);
+//               }
+//               if (quWords.test(inputArray[i])){
+//                 inputArray[i] = inputArray[i].substring(1) + inputArray[i].substring(0, 1)
+//               }
+//             inputArray[i] = inputArray[i] + "ay";
+//         }
+//         if(specialChr.test(inputArray[i])){
+//           var position = inputArray[i].search(specialChr);
+//           console.log(position)
+//           inputArray[i] = inputArray[i].substring(0, position) +inputArray[i].substring(position+1, inputArray[i].length) + inputArray[i].substring(position,position+1)
+//         }
+//     }
+//       return inputArray.join(" ")
+//   }
+//
+//   var word = pigLatin(splitText);
+//   response.send(word);
+// });
 
 app.listen(process.argv[2], function () {
   console.log('Example app listening on port ' + process.argv[2]);

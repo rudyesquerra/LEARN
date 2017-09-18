@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "cookie-parser": "^1.4.3",
     "express": "^4.15.4",
     "reverse-string": "^0.0.6"
   }
