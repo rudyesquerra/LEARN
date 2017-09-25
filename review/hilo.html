@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+          //Javascript Hi/Lo Game
+          // Goal
+          //
+          // Create a function that plays the following game: The computer picks a secret random integer between 1 and 100 (both inclusive), and repeatedly asks the user for guesses.
+          // If the user's guess is too high or too low, the computer notifies them of that
+          // Otherwise, if the user guesses the secret number correctly, the computer displays a winning message and the game is over.
+
+        var picks; //Define a variable which will be the number that the user picks
+        var random = Math.floor(Math.random()*100);//Used Math.floor() to use only integers, and Math.random() to store a random value between 1 and 100 in our random variable.
+        var counter = 0; //Define a variable counter that will increase by one each time the user doesn't guess the number
+        var name; //Define a variable called name where the user's name will be stored
+        function hilo() {
+          name = prompt("Tell me your name")//Using prompt, name now has a new value
+          do{ //do - while loop initiates
+            counter += 1;
+            picks = prompt("Pick a number") //User inputs a number and it get stored in our picks variable.
+            if(picks === null){
+              break
+            }
+            if(isNaN(picks)){
+              alert("Use numbers only")
+            }
+              if(picks > random){ //Conditional statement where the number picked is compared to random
+              alert("The number is too high") // If the guess is too high, user will receive an alert with the message.
+            } if (picks < random){
+              alert("The number is too low")// If the guess is too low, user will receive an alert with the message.
+            } if (counter > 7){
+              alert("Too many tries, you loose");
+              break
+            }
+          } while(picks != random)// If the user guesses the number, user will receive an alert with the winning msg.
+              if(picks == random){ // Variable comparison, if the pick  equals the guess, then alert "You Won"
+              alert("You Won " + name)// Inlude the name variable to show the name
+            }
+        }
+
+        hilo()//We call the function
+
+    </script>
+  </body>
+</html>

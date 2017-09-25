@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+        var userId;
+        var password;
+
+        function inputCredentials() {
+          userId = prompt("Enter user ID");
+          password = prompt("Enter password");
+        }
+
+        function isUserIdValid(str) {
+          return str.length > 6 && !str.includes("#") && !str.includes("$");
+        }
+
+        function isPasswordValid(str) {
+          return str.length > 6 && (str.includes("#") || str.includes("$"))
+        }
+
+        function areCredentialsValid(id, pass) {
+          return isUserIdValid(id) && isPasswordValid(pass);
+        }
+
+        function inputValidCredentials() {
+          do {
+            inputCredentials();
+          } while (!areCredentialsValid(userId, password));
+          alert("Credentials accepted");
+        }
+
+        inputValidCredentials()
+
+    </script>
+  </body>
+</html>
