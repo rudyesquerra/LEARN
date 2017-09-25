@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Magic 8 Ball Game</title>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1 class = "main">Magic 8 Ball</h1>
+    <div class="shadow"></div>
+    <div class="main">
+    Question: <input type="text" id="question">
+    <input type="submit" value="Query" onClick="askMe()">
+    </div>
+    <div class="epos">
+    <div class="eball">
+      <div class="egrad"></div>
+      <div class="ewin"><div>
+      <div class="triangle"></div>
+      <div class="textbox">
+        <p id="show">Your answer goes here</p>
+      </div>
+    </div>
+    </div>
+    <script>
+    // Magic 8 Ball Challenge
+    // Story
+    //
+    // As a user I can enter a question on a web page and magically get an answer to my question.
+    // Goal:
+    //
+    // Create an array with the following answers: Yup!, Fuhgeddaboudit, Maybe, Ask: what would your mother do?, Ask: what would an Australian do, then do the opposite, Your answer here.
+    // Input a question from the user.
+    // Create a random number to select one of the answers (hint: use Math.random() and change the magnitude).
+    // Output the question with the random answer.
+    // Stretch goal:
+    //
+    // Put the question and answer into a loop that stops when the user enters STOP.
+
+    var random;
+    var question;
+    function getRandomIntInclusive(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+    }
+
+    function askMe(){
+        question = document.getElementById("question").value;
+        random = getRandomIntInclusive(1,3);
+        console.log(question)
+        if(random == 1){
+          document.getElementById("show").innerHTML = "Yup!";
+        } else if (random == 2) {
+          document.getElementById("show").innerHTML = "Fuhgeddaboudit";
+        } else if (random == 3){
+          document.getElementById("show").innerHTML = "Maybe";
+        }
+      }
+
+    </script>
+  </body>
+</html>
